@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 const styles = makeStyles({
   root: {
@@ -32,15 +33,17 @@ const styles = makeStyles({
 export default function PantoneBox(props: PantoneBox) {
   const classes = styles(props);
   return (
-    <Paper className={classes.root} elevation={0}>
-      <div></div>
-      <Typography className={classes.text} variant="overline">
-        COPY
-      </Typography>
-      <div className={classes.btnContainer}>
-        <Typography variant="button">{props.name}</Typography>
-        <Typography variant="button">Shades</Typography>
-      </div>
-    </Paper>
+    <CopyToClipboard text={props.color}>
+      <Paper className={classes.root} elevation={0}>
+        <div></div>
+        <Typography className={classes.text} variant="overline">
+          COPY
+        </Typography>
+        <div className={classes.btnContainer}>
+          <Typography variant="button">{props.name}</Typography>
+          <Typography variant="button">Shades</Typography>
+        </div>
+      </Paper>
+    </CopyToClipboard>
   );
 }
