@@ -4,12 +4,17 @@ import collections from "./utils/seedcolors";
 import { collectionWithShades } from "./utils/shades";
 import { findCollection } from "./utils/misc";
 import Pantones from "./views/Pantones";
+import Collections from "./views/Collections";
 import NotFound from "./views/NotFound-404";
 
 function App() {
   return (
     <Switch>
-      <Route exact path="/" render={() => <h1>ALL COLLECTIONS VIEW</h1>} />
+      <Route
+        exact
+        path="/"
+        render={() => <Collections collections={collections} />}
+      />
       <Route
         exact
         path="/collection/:id"
@@ -22,9 +27,6 @@ function App() {
           );
         }}
       />
-      {/* <div className="App">
-      <Pantones {...collectionWithShades(collections[0])} />
-    </div> */}
     </Switch>
   );
 }

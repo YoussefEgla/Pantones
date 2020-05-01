@@ -4,3 +4,7 @@ interface Pantones {
   emoji?: string;
   colors: { name: string; color: string }[];
 }
+
+interface CollectionsList {
+  collections: Pantones[];
+}
