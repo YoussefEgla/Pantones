@@ -1,5 +1,4 @@
 import chroma from "chroma-js";
-import { colors } from "@material-ui/core";
 
 /**
  * Generate a range for shades

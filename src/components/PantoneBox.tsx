@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Paper, Typography } from "@material-ui/core";
+import React from "react";
+import { Paper, Typography, Fade } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
 
@@ -32,6 +32,7 @@ const styles = makeStyles({
 
 export default function PantoneBox(props: PantoneBox) {
   const classes = styles(props);
+
   return (
     <CopyToClipboard text={props.color}>
       <Paper className={classes.root} elevation={0}>

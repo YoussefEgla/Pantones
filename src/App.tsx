@@ -6,7 +6,7 @@ import Pantones from "./views/Pantones";
 function App() {
   return (
     <div className="App">
-      <Pantones {...collections[0]} />
+      <Pantones {...collectionWithShades(collections[0])} />
     </div>
   );
 }
