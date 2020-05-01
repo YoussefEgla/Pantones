@@ -33,9 +33,7 @@ const useStyles = makeStyles({
 export default function CollectionsList(props: CollectionsList) {
   const classes = useStyles();
   const list = props.collections.map((collection) => (
-    <Link to={`/collection/${collection.id}`}>
-      <MiniCollection {...collection} />
-    </Link>
+    <MiniCollection {...collection} />
   ));
   return (
     <div className={classes.root}>

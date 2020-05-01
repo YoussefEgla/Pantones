@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -14,9 +15,6 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    "&:hover": {
-      cursor: "pointer",
-    },
   },
   container: {
     width: "100%",
@@ -32,6 +30,10 @@ const useStyles = makeStyles({
     alignItems: "center",
     textDecoration: "none",
     color: "black",
+  },
+  link: {
+    width: "100%",
+    height: "100%",
   },
   mini: {
     height: "25%",
@@ -56,10 +58,19 @@ export default function MiniCollection(props: Pantones) {
 
   return (
     <div className={classes.root}>
-      <div className={classes.container}>{miniPantones}</div>
+      <div className={classes.container}>
+        <Link to={`/collection/${props.id}`} className={classes.link}>
+          {miniPantones}
+        </Link>
+      </div>
+
       <Typography variant="button" className={classes.title}>
-        <span>{props.name}</span>
-        <span>{props.emoji}</span>
+        <span>
+          <Link to={`/collection/${props.id}`}>{props.name}</Link>
+        </span>
+        <span>
+          <Link to={`/collection/${props.id}`}>{props.emoji}</Link>
+        </span>
       </Typography>
     </div>
   );
