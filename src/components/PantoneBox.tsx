@@ -1,5 +1,6 @@
 import React from "react";
-import { Paper, Typography, Fade } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
 
@@ -42,7 +43,9 @@ export default function PantoneBox(props: PantoneBox) {
         </Typography>
         <div className={classes.btnContainer}>
           <Typography variant="button">{props.name}</Typography>
-          <Typography variant="button">Shades</Typography>
+          <Typography variant="button">
+            <Link to={`/collection/`}>Shades</Link>
+          </Typography>
         </div>
       </Paper>
     </CopyToClipboard>
