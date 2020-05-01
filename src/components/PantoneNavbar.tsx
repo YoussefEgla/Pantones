@@ -8,7 +8,10 @@ import {
   Select,
   MenuItem,
   Divider,
+  Snackbar,
+  IconButton,
 } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles({
   nav: {
@@ -36,6 +39,7 @@ export default function Navbar(props: PantoneNavbar) {
   const classes = useStyles();
   const { colorFormat } = props;
   const { setAnimateList, setShade, setColorFormat } = props.dispatch;
+  const [snackbar, setSnackbar] = useState(true);
 
   return (
     <Fragment>
@@ -75,6 +79,7 @@ export default function Navbar(props: PantoneNavbar) {
             value={colorFormat}
             onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
               setColorFormat(event.target.value as string);
+              setSnackbar(true);
             }}
             label="Color Format"
           >
@@ -84,7 +89,27 @@ export default function Navbar(props: PantoneNavbar) {
           </Select>
         </FormControl>
       </nav>
+
       <Divider />
+
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+        open={snackbar}
+        autoHideDuration={3000}
+        onClose={() => setSnackbar(false)}
+        message={
+          <span>Color format changed to: {colorFormat.toUpperCase()}</span>
+        }
+        action={
+          <IconButton
+            onClick={() => setSnackbar(false)}
+            color="inherit"
+            key="close"
+            aria-label="close"
+            children={<CloseIcon />}
+          />
+        }
+      />
     </Fragment>
   );
 }
