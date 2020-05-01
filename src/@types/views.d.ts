@@ -8,3 +8,5 @@ interface Pantones {
 interface CollectionsList {
   collections: Pantones[];
 }
+
+interface Shades {}

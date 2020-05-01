@@ -5,6 +5,7 @@ import { collectionWithShades } from "./utils/shades";
 import { findCollection } from "./utils/misc";
 import Pantones from "./views/Pantones";
 import Collections from "./views/Collections";
+import Shades from "./views/Shades";
 import NotFound from "./views/NotFound-404";
 
 function App() {

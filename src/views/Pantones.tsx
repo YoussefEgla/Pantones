@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Collapse } from "@material-ui/core";
 import PantoneBox from "../components/PantoneBox";
-import Navbar from "../components/PantoneNavbar";
+import Navbar from "../components/Navbar";
 
 const styles = makeStyles({
   root: {

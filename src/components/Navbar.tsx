@@ -11,7 +11,7 @@ import {
   Snackbar,
   IconButton,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles({
@@ -37,6 +37,7 @@ const useStyles = makeStyles({
 });
 
 export default function Navbar(props: PantoneNavbar) {
+  const { id, shade } = useParams();
   const classes = useStyles();
   const { colorFormat } = props;
   const { setAnimateList, setShade, setColorFormat } = props.dispatch;
@@ -51,24 +52,27 @@ export default function Navbar(props: PantoneNavbar) {
           </Typography>
         </Link>
 
-        <Slider
-          className={classes.slider}
-          defaultValue={500}
-          getAriaValueText={valuetext}
-          aria-labelledby="discrete-slider"
-          valueLabelDisplay="auto"
-          step={100}
-          marks
-          min={100}
-          max={900}
-          onChange={(event, value) => {
-            setAnimateList(false);
-            setTimeout(() => {
-              setAnimateList(true);
-            }, 350);
-            setShade(value as number);
-          }}
-        />
+        {!!!shade ? (
+          <Slider
+            className={classes.slider}
+            defaultValue={500}
+            getAriaValueText={valuetext}
+            aria-labelledby="discrete-slider"
+            valueLabelDisplay="auto"
+            step={100}
+            marks
+            min={100}
+            max={900}
+            onChange={(event, value) => {
+              setAnimateList(false);
+              setTimeout(() => {
+                setAnimateList(true);
+              }, 350);
+              setShade(value as number);
+            }}
+          />
+        ) : null}
+
         <FormControl variant="outlined" className={classes.formControl}>
           <InputLabel
             className={classes.inputLabel}
