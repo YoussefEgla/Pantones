@@ -1,38 +1,11 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import collections from "./utils/seedcolors";
-import { collectionWithShades } from "./utils/shades";
-import { findCollection } from "./utils/misc";
-import Pantones from "./views/Pantones";
-import Collections from "./views/Collections";
-import Shades from "./views/Shades";
-import NotFound from "./views/NotFound-404";
+import { Switch } from "react-router-dom";
+import Routes from "./Routes";
 
 function App() {
   return (
     <Switch>
-      <Route
-        exact
-        path="/"
-        render={() => <Collections collections={collections} />}
-      />
-      <Route
-        exact
-        path="/collection/:id"
-        render={(props) => {
-          let collection = findCollection(props.match.params.id);
-          return collection ? (
-            <Pantones {...collectionWithShades(collection)} />
-          ) : (
-            <NotFound />
-          );
-        }}
-      />
-      <Route
-        exact
-        path="/collection/:id/:shade"
-        render={(props) => <Shades />}
-      />
+      <Routes />
     </Switch>
   );
 }
