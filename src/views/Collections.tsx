@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { makeStyles, Typography } from "@material-ui/core";
 import MiniCollection from "../components/MiniCollection";
 
@@ -33,7 +32,7 @@ const useStyles = makeStyles({
 export default function CollectionsList(props: CollectionsList) {
   const classes = useStyles();
   const list = props.collections.map((collection) => (
-    <MiniCollection {...collection} />
+    <MiniCollection {...collection} key={collection.id} />
   ));
   return (
     <div className={classes.root}>

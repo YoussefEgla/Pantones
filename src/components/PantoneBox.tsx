@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Paper, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -32,6 +32,7 @@ const styles = makeStyles({
 });
 
 export default function PantoneBox(props: PantoneBox) {
+  const { id } = useParams();
   const classes = styles(props);
 
   return (
@@ -44,7 +45,7 @@ export default function PantoneBox(props: PantoneBox) {
         <div className={classes.btnContainer}>
           <Typography variant="button">{props.name}</Typography>
           <Typography variant="button">
-            <Link to={`/collection/`}>Shades</Link>
+            <Link to={`/collection/${id}/${props.id}`}>Shades</Link>
           </Typography>
         </div>
       </Paper>

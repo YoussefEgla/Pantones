@@ -1,6 +1,7 @@
 interface PantoneBox {
   color: string;
   name: string;
+  id: string;
 }
 
 type ColorFormat = "hex" | "rgb" | "rgba";

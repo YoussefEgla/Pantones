@@ -42,6 +42,7 @@ export default function Pantones(props: PantonesWithShades) {
   const list = props.colors[shade].map((pantone) => {
     return (
       <PantoneBox
+        id={pantone.id}
         name={pantone.name}
         color={pantone[colorFormat as ColorFormat]}
         key={pantone.id}
