@@ -31,7 +31,7 @@ function App() {
       <Route
         exact
         path="/collection/:id/:shade"
-        render={() => <h1>SHADES VIEW</h1>}
+        render={(props) => <Shades />}
       />
     </Switch>
   );
