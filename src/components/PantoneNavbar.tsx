@@ -11,6 +11,7 @@ import {
   Snackbar,
   IconButton,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
 
 const useStyles = makeStyles({
@@ -44,9 +45,12 @@ export default function Navbar(props: PantoneNavbar) {
   return (
     <Fragment>
       <nav className={classes.nav}>
-        <Typography variant="h5" component="p">
-          Pantones
-        </Typography>
+        <Link to="/">
+          <Typography variant="h5" component="p">
+            Pantones
+          </Typography>
+        </Link>
+
         <Slider
           className={classes.slider}
           defaultValue={500}

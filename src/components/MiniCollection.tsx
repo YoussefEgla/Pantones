@@ -20,23 +20,43 @@ const useStyles = makeStyles({
   },
   container: {
     width: "100%",
-    height: "75%",
-    backgroundColor: "gray",
+    height: "85%",
+    margin: "0 auto",
+    backgroundColor: "white",
   },
   title: {
     width: "100%",
+    height: "15%",
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "center",
     textDecoration: "none",
     color: "black",
+  },
+  mini: {
+    height: "25%",
+    width: "20%",
+    display: "inline-block",
+    margin: "0 auto",
+    marginBottom: "-0.25rem",
+    position: "relative",
   },
 });
 
 export default function MiniCollection(props: Pantones) {
   const classes = useStyles();
+
+  const miniPantones = props.colors.map(({ name, color }) => (
+    <div
+      className={classes.mini}
+      style={{ backgroundColor: color }}
+      key={name}
+    />
+  ));
+
   return (
     <div className={classes.root}>
-      <div className={classes.container}></div>
+      <div className={classes.container}>{miniPantones}</div>
       <Typography variant="button" className={classes.title}>
         <span>{props.name}</span>
         <span>{props.emoji}</span>

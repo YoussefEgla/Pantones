@@ -19,18 +19,6 @@ const styles = makeStyles({
     height: "80%",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  back: {
-    width: "19.625%",
-    height: "24%",
-    margin: "0.125%",
-    cursor: "pointer",
-    color: "#ffffff",
-    backgroundColor: "#000000",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   },
   footer: {
     width: "90%",
@@ -76,12 +64,7 @@ export default function Pantones(props: PantonesWithShades) {
         />
       </header>
 
-      <main className={classes.main}>
-        {list}
-        <div className={classes.back}>
-          <span>Go Back!</span>
-        </div>
-      </main>
+      <main className={classes.main}>{list}</main>
       <footer className={classes.footer}>
         <Typography variant="h6">
           {props.name} &nbsp;{props.emoji}

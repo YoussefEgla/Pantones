@@ -1,7 +1,9 @@
 html,
 body,
-a {
+a,
+a:visited {
   margin: 0;
   padding: 0;
   text-decoration: none;
+  color: black;
 }
