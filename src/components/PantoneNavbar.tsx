@@ -1,0 +1,94 @@
+import React, { Fragment, useState } from "react";
+import {
+  makeStyles,
+  Typography,
+  Slider,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Divider,
+} from "@material-ui/core";
+
+const useStyles = makeStyles({
+  nav: {
+    height: "100%",
+    width: "80%",
+    margin: "0 auto",
+    padding: "0 2.5%",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  slider: {
+    maxWidth: 300,
+    alignSelf: "flex-end",
+  },
+  formControl: {
+    minWidth: 125,
+  },
+  inputLabel: {
+    maxHeight: 35,
+  },
+});
+
+export default function Navbar(props: PantoneNavbar) {
+  const classes = useStyles();
+  const { colorFormat } = props;
+  const { setAnimateList, setShade, setColorFormat } = props.dispatch;
+
+  return (
+    <Fragment>
+      <nav className={classes.nav}>
+        <Typography variant="h5" component="p">
+          Pantones
+        </Typography>
+        <Slider
+          className={classes.slider}
+          defaultValue={500}
+          getAriaValueText={valuetext}
+          aria-labelledby="discrete-slider"
+          valueLabelDisplay="auto"
+          step={100}
+          marks
+          min={100}
+          max={900}
+          onChange={(event, value) => {
+            setAnimateList(false);
+            setTimeout(() => {
+              setAnimateList(true);
+            }, 350);
+            setShade(value as number);
+          }}
+        />
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel
+            className={classes.inputLabel}
+            id="demo-simple-select-outlined-label"
+          >
+            Color Format
+          </InputLabel>
+          <Select
+            className={classes.inputLabel}
+            labelId="demo-simple-select-outlined-label"
+            id="demo-simple-select-outlined"
+            value={colorFormat}
+            onChange={(event: React.ChangeEvent<{ value: unknown }>) => {
+              setColorFormat(event.target.value as string);
+            }}
+            label="Color Format"
+          >
+            <MenuItem value={"hex"}>HEX</MenuItem>
+            <MenuItem value={"rgb"}>RGB</MenuItem>
+            <MenuItem value={"rgba"}>RGBA</MenuItem>
+          </Select>
+        </FormControl>
+      </nav>
+      <Divider />
+    </Fragment>
+  );
+}
+
+function valuetext(value: number) {
+  return `${value} Shade`;
+}
