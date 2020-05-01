@@ -39,7 +39,7 @@ export default function Navbar(props: PantoneNavbar) {
   const classes = useStyles();
   const { colorFormat } = props;
   const { setAnimateList, setShade, setColorFormat } = props.dispatch;
-  const [snackbar, setSnackbar] = useState(true);
+  const [snackbar, setSnackbar] = useState(false);
 
   return (
     <Fragment>

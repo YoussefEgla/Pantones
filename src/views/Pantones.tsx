@@ -11,8 +11,8 @@ const styles = makeStyles({
   },
   header: {
     width: "100%",
-    height: "10%",
-    margin: 0,
+    height: "9.5%",
+    marginBottom: "0.25%",
     padding: 0,
   },
   main: {
@@ -22,14 +22,22 @@ const styles = makeStyles({
     justifyContent: "center",
   },
   back: {
-    width: "19%",
+    width: "19.625%",
     height: "24%",
-    margin: "0.5%",
+    margin: "0.125%",
     cursor: "pointer",
     color: "#ffffff",
     backgroundColor: "#000000",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
+  },
+  footer: {
+    width: "90%",
+    height: "10%",
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
 });
@@ -74,7 +82,11 @@ export default function Pantones(props: PantonesWithShades) {
           <span>Go Back!</span>
         </div>
       </main>
-      <footer>Hello</footer>
+      <footer className={classes.footer}>
+        <Typography variant="h6">
+          {props.name} &nbsp;{props.emoji}
+        </Typography>
+      </footer>
     </div>
   );
 }

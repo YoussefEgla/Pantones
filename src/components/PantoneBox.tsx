@@ -5,9 +5,9 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const styles = makeStyles({
   root: {
-    width: "19%",
+    width: "19.625%",
     height: "24%",
-    margin: "0.5%",
+    margin: "0.125%",
     cursor: "pointer",
     backgroundColor: (props: PantoneBox) => props.color,
     display: "flex",
