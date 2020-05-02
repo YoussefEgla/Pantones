@@ -88,9 +88,11 @@ export default function Pantones(props: PantonesWithShades) {
       </Fade>
       <footer className={classes.footer}>
         {id && !pantone ? (
-          <Typography variant="h6">
-            {props.name} &nbsp;{props.emoji}
-          </Typography>
+          <Button>
+            <Typography variant="h6">
+              {props.name} &nbsp;{props.emoji}
+            </Typography>
+          </Button>
         ) : (
           <Link to={`/collection/${props.id}`}>
             <Button variant="outlined">Back &nbsp;{props.emoji}</Button>

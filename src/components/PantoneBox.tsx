@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { Paper, Typography } from "@material-ui/core";
+import { Paper, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
 
@@ -24,8 +24,7 @@ const styles = makeStyles({
     transition: "0.5s",
   },
   btnContainer: {
-    width: "95%",
-    margin: "0 2.5%",
+    width: "100%",
     display: "flex",
     justifyContent: "space-between",
   },
@@ -43,10 +42,14 @@ export default function PantoneBox(props: PantoneBox) {
           COPY
         </Typography>
         <div className={classes.btnContainer}>
-          <Typography variant="button">{props.name}</Typography>
+          <Typography variant="button">
+            <CopyToClipboard text={props.color}>
+              <Button size="small">{props.name}</Button>
+            </CopyToClipboard>
+          </Typography>
           <Typography variant="button">
             <Link to={`/collection/${id}/${props.id.split("-")[0]}`}>
-              Shades
+              <Button size="small">Shades</Button>
             </Link>
           </Typography>
         </div>
