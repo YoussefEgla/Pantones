@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Collapse } from "@material-ui/core";
+import { Typography, Fade } from "@material-ui/core";
 import PantoneBox from "../components/PantoneBox";
+import ShadeBox from "../components/ShadeBox";
 import Navbar from "../components/Navbar";
+import { useParams } from "react-router-dom";
+import { filterShades } from "../utils/shades";
 
 const styles = makeStyles({
   root: {
@@ -35,11 +38,13 @@ export default function Pantones(props: PantonesWithShades) {
   const [shade, setShade] = useState(500); // shade state
   const [animateList, setAnimateList] = useState(false);
   const classes = styles();
+  const { id, pantone } = useParams();
+  const shades = filterShades(props, pantone);
 
   /**
    * Render List of PantoneBoxes
    */
-  const list = props.colors[shade].map((pantone) => {
+  const pantoneList = props.colors[shade].map((pantone) => {
     return (
       <PantoneBox
         id={pantone.id}
@@ -50,10 +55,20 @@ export default function Pantones(props: PantonesWithShades) {
     );
   });
 
+  // @ts-ignore
+  const shadesList = shades.map((pantone) => (
+    <ShadeBox
+      name={pantone.name}
+      id={pantone.id}
+      color={pantone.hex}
+      key={pantone.id}
+    />
+  ));
+
   useEffect(() => {
     setTimeout(() => {
       setAnimateList(true);
-    }, 250);
+    }, 50);
   }, []);
 
   return (
@@ -65,7 +80,11 @@ export default function Pantones(props: PantonesWithShades) {
         />
       </header>
 
-      <main className={classes.main}>{list}</main>
+      <Fade in={animateList}>
+        <main className={classes.main}>
+          {id && !pantone ? pantoneList : shadesList}
+        </main>
+      </Fade>
       <footer className={classes.footer}>
         <Typography variant="h6">
           {props.name} &nbsp;{props.emoji}

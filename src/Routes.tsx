@@ -4,7 +4,6 @@ import { Route } from "react-router-dom";
 // views
 import Collections from "./views/Collections";
 import Pantones from "./views/Pantones";
-import Shades from "./views/Shades";
 import NotFound from "./views/NotFound-404";
 
 // utils and functions
@@ -38,7 +37,7 @@ export default function Routes() {
         render={(props) => {
           let collection = findCollection(props.match.params.id);
           if (collection) {
-            return <Shades collection={collectionWithShades(collection)} />;
+            return <Pantones {...collectionWithShades(collection)} />;
           } else {
             return <NotFound />;
           }

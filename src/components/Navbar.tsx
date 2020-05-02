@@ -37,7 +37,7 @@ const useStyles = makeStyles({
 });
 
 export default function Navbar(props: PantoneNavbar) {
-  const { id, shade } = useParams();
+  const { id, pantone } = useParams();
   const classes = useStyles();
   const { colorFormat } = props;
   const { setAnimateList, setShade, setColorFormat } = props.dispatch;
@@ -52,7 +52,7 @@ export default function Navbar(props: PantoneNavbar) {
           </Typography>
         </Link>
 
-        {!!!shade ? (
+        {!pantone ? (
           <Slider
             className={classes.slider}
             defaultValue={500}

@@ -47,3 +47,24 @@ export function collectionWithShades(
   }
   return newPantones;
 }
+
+/**
+ * Return shades of a pantone
+ */
+export function filterShades(
+  collection: PantonesWithShades,
+  colorToFilter: string
+) {
+  let shades: any = [];
+  let allColors = collection.colors;
+
+  for (let key in allColors) {
+    shades.push(
+      ...allColors[key].filter(
+        (color) => color.id.split("-")[0] === colorToFilter
+      )
+    );
+  }
+
+  return shades.slice(1);
+}
