@@ -45,7 +45,9 @@ export default function PantoneBox(props: PantoneBox) {
         <div className={classes.btnContainer}>
           <Typography variant="button">{props.name}</Typography>
           <Typography variant="button">
-            <Link to={`/collection/${id}/${props.id}`}>Shades</Link>
+            <Link to={`/collection/${id}/${props.id.split("-")[0]}`}>
+              Shades
+            </Link>
           </Typography>
         </div>
       </Paper>

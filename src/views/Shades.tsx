@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import Navbar from "../components/Navbar";
 import ShadeBox from "../components/ShadeBox";
@@ -30,8 +31,18 @@ const useStyles = makeStyles({
 });
 
 export default function Shades(props: Shades) {
+  const { id, pantone } = useParams();
   const classes = useStyles(props);
-  const list = [1, 2, 3, 4, 5, 6, 7, 8, 9].map(() => <ShadeBox />);
+  const shades = getShades(props.collection, pantone);
+  // @ts-ignore
+  const list = shades.map((pantone) => (
+    <ShadeBox
+      name={pantone.name}
+      id={pantone.id}
+      color={pantone.hex}
+      key={pantone.id}
+    />
+  ));
   return (
     <div className={classes.root}>
       <header className={classes.header}>
@@ -41,4 +52,19 @@ export default function Shades(props: Shades) {
       <footer className={classes.footer}>Footer</footer>
     </div>
   );
+}
+
+function getShades(collection: PantonesWithShades, colorToFilter: string) {
+  let shades: any = [];
+  let allColors = collection.colors;
+
+  for (let key in allColors) {
+    shades.push(
+      ...allColors[key].filter(
+        (color) => color.id.split("-")[0] === colorToFilter
+      )
+    );
+  }
+
+  return shades.slice(1);
 }

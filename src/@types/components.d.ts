@@ -14,5 +14,3 @@ interface PantoneNavbar {
   };
   colorFormat: string;
 }
-
-interface ShadeBox {}

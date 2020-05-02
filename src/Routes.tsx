@@ -34,8 +34,15 @@ export default function Routes() {
       />
       <Route
         exact
-        path="/collection/:id/:shade"
-        render={(props) => <Shades />}
+        path="/collection/:id/:pantone"
+        render={(props) => {
+          let collection = findCollection(props.match.params.id);
+          if (collection) {
+            return <Shades collection={collectionWithShades(collection)} />;
+          } else {
+            return <NotFound />;
+          }
+        }}
       />
     </Fragment>
   );

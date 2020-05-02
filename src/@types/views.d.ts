@@ -9,4 +9,6 @@ interface CollectionsList {
   collections: Pantones[];
 }
 
-interface Shades {}
+interface Shades {
+  collection: PantonesWithShades;
+}
