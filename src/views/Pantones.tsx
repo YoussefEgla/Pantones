@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { Typography, Fade } from "@material-ui/core";
+import { Typography, Fade, Button } from "@material-ui/core";
 import PantoneBox from "../components/PantoneBox";
 import ShadeBox from "../components/ShadeBox";
 import Navbar from "../components/Navbar";
@@ -86,9 +87,15 @@ export default function Pantones(props: PantonesWithShades) {
         </main>
       </Fade>
       <footer className={classes.footer}>
-        <Typography variant="h6">
-          {props.name} &nbsp;{props.emoji}
-        </Typography>
+        {id && !pantone ? (
+          <Typography variant="h6">
+            {props.name} &nbsp;{props.emoji}
+          </Typography>
+        ) : (
+          <Link to={`/collection/${props.id}`}>
+            <Button variant="outlined">Back &nbsp;{props.emoji}</Button>
+          </Link>
+        )}
       </footer>
     </div>
   );
