@@ -37,7 +37,7 @@ const useStyles = makeStyles({
 });
 
 export default function Navbar(props: PantoneNavbar) {
-  const { id, pantone } = useParams();
+  const { pantone } = useParams();
   const classes = useStyles();
   const { colorFormat } = props;
   const { setAnimateList, setShade, setColorFormat } = props.dispatch;
