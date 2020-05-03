@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Paper, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
+import chroma from "chroma-js";
 
 const styles = makeStyles({
   root: {
@@ -18,6 +19,8 @@ const styles = makeStyles({
     "&:hover > span": {
       opacity: 1,
     },
+    color: (props: PantoneBox) =>
+      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
   },
   text: {
     opacity: "0",
@@ -27,6 +30,12 @@ const styles = makeStyles({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
+    color: (props: PantoneBox) =>
+      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
+  },
+  span: {
+    color: (props: PantoneBox) =>
+      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
   },
 });
 
@@ -44,12 +53,16 @@ export default function PantoneBox(props: PantoneBox) {
         <div className={classes.btnContainer}>
           <Typography variant="button">
             <CopyToClipboard text={props.color}>
-              <Button size="small">{props.name}</Button>
+              <Button size="small">
+                <span className={classes.span}>{props.name}</span>
+              </Button>
             </CopyToClipboard>
           </Typography>
-          <Typography variant="button">
+          <Typography variant="button" color="inherit">
             <Link to={`/collection/${id}/${props.id.split("-")[0]}`}>
-              <Button size="small">Shades</Button>
+              <Button size="small" color="inherit">
+                <span className={classes.span}>Shades</span>
+              </Button>
             </Link>
           </Typography>
         </div>

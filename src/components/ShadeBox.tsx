@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import CopyToClipboard from "react-copy-to-clipboard";
+import chroma from "chroma-js";
 
 const useStyles = makeStyles({
   root: {
@@ -10,6 +11,8 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "flex-end",
     justifyContent: "center",
+    color: (props: PantoneBox) =>
+      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
   },
   container: {
     width: "95%",
