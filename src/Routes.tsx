@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
-import { Route } from "react-router-dom";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
 // views
 import Collections from "./views/Collections";
 import Pantones from "./views/Pantones";
+import NewCollection from "./views/NewCollection";
 import NotFound from "./views/NotFound-404";
 
 // utils and functions
@@ -13,12 +14,13 @@ import { collectionWithShades } from "./utils/shades";
 
 export default function Routes() {
   return (
-    <Fragment>
+    <Switch>
       <Route
         exact
         path="/"
         render={() => <Collections collections={collections} />}
       />
+      <Route exact path="/collection/new" render={() => <NewCollection />} />
       <Route
         exact
         path="/collection/:id"
@@ -36,13 +38,14 @@ export default function Routes() {
         path="/collection/:id/:pantone"
         render={(props) => {
           let collection = findCollection(props.match.params.id);
-          if (collection) {
-            return <Pantones {...collectionWithShades(collection)} />;
-          } else {
-            return <NotFound />;
-          }
+          return collection ? (
+            <Pantones {...collectionWithShades(collection)} />
+          ) : (
+            <NotFound />
+          );
         }}
       />
-    </Fragment>
+      <Route render={() => <NotFound />} />
+    </Switch>
   );
 }

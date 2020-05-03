@@ -1,5 +1,6 @@
 import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { makeStyles, Typography, Button } from "@material-ui/core";
 import MiniCollection from "../components/MiniCollection";
 
 const useStyles = makeStyles({
@@ -41,6 +42,11 @@ export default function CollectionsList(props: CollectionsList) {
           <Typography variant="h5" component="p">
             Pantones
           </Typography>
+          <Link to="/collection/new">
+            <Button variant="contained" color="primary">
+              Create Collection
+            </Button>
+          </Link>
         </div>
       </header>
       <main className={classes.main}>{list}</main>

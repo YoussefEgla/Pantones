@@ -3,11 +3,7 @@ import { Switch } from "react-router-dom";
 import Routes from "./Routes";
 
 function App() {
-  return (
-    <Switch>
-      <Routes />
-    </Switch>
-  );
+  return <Routes />;
 }
 
 export default App;
