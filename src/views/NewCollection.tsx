@@ -1,7 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
-
-const useStyles = makeStyles({});
+import { notFoundStyles as useStyles } from "./styles";
 
 export default function NewCollection() {
   const classes = useStyles();

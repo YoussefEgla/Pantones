@@ -2,8 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // views
-import { Collections, OneCollection, NotFound } from "./views/";
-import NewCollection from "./views/NewCollection";
+import { Collections, OneCollection, NotFound, NewCollection } from "./views/";
 
 // utils and functions
 import collections from "./utils/seedcolors";
