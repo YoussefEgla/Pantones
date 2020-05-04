@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Typography, Fade, Button } from "@material-ui/core";
-import PantoneBox from "../components/PantoneBox";
-import ShadeBox from "../components/ShadeBox";
-import Navbar from "../components/Navbar";
-import { filterShades } from "../services/shades";
+import { PantoneBox, ShadeBox, Navbar } from "../components/";
+import { filterShades } from "../services/";
 import { oneCollectionStyles as useStyles } from "./styles";
 
 export default function OneCollection(props: PantonesWithShades) {

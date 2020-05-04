@@ -1,4 +1,14 @@
 import chroma from "chroma-js";
+import { seedCollections } from "./";
+
+/**
+ * find collection to pass as prop to PantonesView
+ */
+export function findCollection(id: string): SeedCollection | undefined {
+  return seedCollections.find((collection) => {
+    return collection.id === id;
+  });
+}
 
 /**
  * Generate a range for shades

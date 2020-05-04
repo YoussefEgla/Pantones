@@ -5,9 +5,11 @@ import { Route, Switch } from "react-router-dom";
 import { Collections, OneCollection, NotFound, NewCollection } from "./views/";
 
 // utils and functions
-import collections from "./services/seedcolors";
-import { findCollection } from "./services/misc";
-import { collectionWithShades } from "./services/shades";
+import {
+  seedCollections,
+  findCollection,
+  collectionWithShades,
+} from "./services/";
 
 export default function Routes() {
   return (
@@ -15,7 +17,7 @@ export default function Routes() {
       <Route
         exact
         path="/"
-        render={() => <Collections collections={collections} />}
+        render={() => <Collections collections={seedCollections} />}
       />
       <Route exact path="/collection/new" render={() => <NewCollection />} />
       <Route
