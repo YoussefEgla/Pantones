@@ -1,15 +1,6 @@
 import React from "react";
-import { makeStyles, Typography } from "@material-ui/core";
-
-const useStyles = makeStyles({
-  root: {
-    height: "100vh",
-    width: "100%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+import { Typography } from "@material-ui/core";
+import { notFoundStyles as useStyles } from "./styles";
 
 export default function NotFound() {
   const classes = useStyles();
