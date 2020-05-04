@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { Typography, Button } from "@material-ui/core";
 
 import { collectionsStyles as useStyles } from "./styles";
-import MiniCollection from "../components/MiniCollection";
+import { CollectionCard } from "../components";
 
 export default function Collections(props: CollectionsList) {
   const classes = useStyles();
   const list = props.collections.map((collection) => (
-    <MiniCollection {...collection} key={collection.id} />
+    <CollectionCard {...collection} key={collection.id} />
   ));
   return (
     <div className={classes.root}>

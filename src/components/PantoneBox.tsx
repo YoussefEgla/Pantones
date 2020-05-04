@@ -1,47 +1,12 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { Paper, Typography, Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
 import CopyToClipboard from "react-copy-to-clipboard";
-import chroma from "chroma-js";
-
-const styles = makeStyles({
-  root: {
-    width: "19.625%",
-    height: "24%",
-    margin: "0.125%",
-    cursor: "pointer",
-    backgroundColor: (props: PantoneBox) => props.color,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "center",
-    "&:hover > span": {
-      opacity: 1,
-    },
-    color: (props: PantoneBox) =>
-      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
-  },
-  text: {
-    opacity: "0",
-    transition: "0.5s",
-  },
-  btnContainer: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "space-between",
-    color: (props: PantoneBox) =>
-      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
-  },
-  span: {
-    color: (props: PantoneBox) =>
-      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
-  },
-});
+import { pantoneBoxStyles as useStyles } from "./styles";
 
 export default function PantoneBox(props: PantoneBox) {
   const { id } = useParams();
-  const classes = styles(props);
+  const classes = useStyles(props);
 
   return (
     <CopyToClipboard text={props.color}>
