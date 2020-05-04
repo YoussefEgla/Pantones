@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { makeStyles, Typography } from "@material-ui/core";
 import { collectionCardStyles as useStyles } from "./styles";
 
-export default function MiniCollection(props: Pantones) {
+export default function MiniCollection(props: SeedCollection) {
   const classes = useStyles();
 
   const miniPantones = props.colors.map(({ name, color }) => (

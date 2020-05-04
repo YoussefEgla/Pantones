@@ -5,9 +5,9 @@ import { Route, Switch } from "react-router-dom";
 import { Collections, OneCollection, NotFound, NewCollection } from "./views/";
 
 // utils and functions
-import collections from "./utils/seedcolors";
-import { findCollection } from "./utils/misc";
-import { collectionWithShades } from "./utils/shades";
+import collections from "./services/seedcolors";
+import { findCollection } from "./services/misc";
+import { collectionWithShades } from "./services/shades";
 
 export default function Routes() {
   return (

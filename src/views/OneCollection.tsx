@@ -4,7 +4,7 @@ import { Typography, Fade, Button } from "@material-ui/core";
 import PantoneBox from "../components/PantoneBox";
 import ShadeBox from "../components/ShadeBox";
 import Navbar from "../components/Navbar";
-import { filterShades } from "../utils/shades";
+import { filterShades } from "../services/shades";
 import { oneCollectionStyles as useStyles } from "./styles";
 
 export default function OneCollection(props: PantonesWithShades) {

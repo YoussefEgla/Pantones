@@ -19,7 +19,7 @@ function scale(hex: string, num: number): string[] {
  * Generate collection with shades
  */
 export function collectionWithShades(
-  pantones: Pantones,
+  pantones: SeedCollection,
   levels: number[] = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 ): PantonesWithShades {
   // make new pantone out of the provided one

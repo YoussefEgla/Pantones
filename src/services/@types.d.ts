@@ -12,3 +12,10 @@ interface PantonesWithShades {
     }[];
   };
 }
+
+interface SeedCollection {
+  name: string;
+  id: string;
+  emoji?: string;
+  colors: { name: string; color: string }[];
+}
