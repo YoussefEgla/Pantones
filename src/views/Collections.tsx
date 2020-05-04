@@ -5,7 +5,7 @@ import { Typography, Button } from "@material-ui/core";
 import { collectionsStyles as useStyles } from "./styles";
 import { CollectionCard } from "../components";
 
-export default function Collections(props: CollectionsList) {
+export default function Collections(props: Collections) {
   const classes = useStyles();
   const list = props.collections.map((collection) => (
     <CollectionCard {...collection} key={collection.id} />
