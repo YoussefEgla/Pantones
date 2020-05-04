@@ -4,7 +4,7 @@ import { notFoundStyles as useStyles } from "./styles";
 export default function NewCollection() {
   const classes = useStyles();
   return (
-    <div>
+    <div className={classes.root}>
       <h1>New Collection View</h1>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { makeStyles, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import { collectionCardStyles as useStyles } from "./styles";
 
 export default function MiniCollection(props: SeedCollection) {

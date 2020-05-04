@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
 import {
-  makeStyles,
   Typography,
   Slider,
   FormControl,
