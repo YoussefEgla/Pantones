@@ -1,44 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import { useParams, Link } from "react-router-dom";
 import { Typography, Fade, Button } from "@material-ui/core";
 import PantoneBox from "../components/PantoneBox";
 import ShadeBox from "../components/ShadeBox";
 import Navbar from "../components/Navbar";
-import { useParams } from "react-router-dom";
 import { filterShades } from "../utils/shades";
+import { oneCollectionStyles as useStyles } from "./styles";
 
-const styles = makeStyles({
-  root: {
-    width: "100%",
-    height: "100vh",
-  },
-  header: {
-    width: "100%",
-    height: "9.5%",
-    marginBottom: "0.25%",
-    padding: 0,
-  },
-  main: {
-    height: "80%",
-    display: "flex",
-    flexWrap: "wrap",
-  },
-  footer: {
-    width: "90%",
-    height: "10%",
-    margin: "0 auto",
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-});
+export default function OneCollection(props: PantonesWithShades) {
+  const classes = useStyles();
 
-export default function Pantones(props: PantonesWithShades) {
   const [colorFormat, setColorFormat] = useState("hex"); // color format state
   const [shade, setShade] = useState(500); // shade state
   const [animateList, setAnimateList] = useState(false);
-  const classes = styles();
   const { id, pantone } = useParams();
   const shades = filterShades(props, pantone);
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Typography, Button } from "@material-ui/core";
 
-import { CollectionsStyles as useStyles } from "./styles";
+import { collectionsStyles as useStyles } from "./styles";
 import MiniCollection from "../components/MiniCollection";
 
 export default function Collections(props: CollectionsList) {

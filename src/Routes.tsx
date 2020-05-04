@@ -2,8 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // views
-import Collections from "./views/";
-import Pantones from "./views/Pantones";
+import { Collections, OneCollection } from "./views/";
 import NewCollection from "./views/NewCollection";
 import NotFound from "./views/NotFound-404";
 
@@ -27,7 +26,7 @@ export default function Routes() {
         render={(props) => {
           let collection = findCollection(props.match.params.id);
           return collection ? (
-            <Pantones {...collectionWithShades(collection)} />
+            <OneCollection {...collectionWithShades(collection)} />
           ) : (
             <NotFound />
           );
@@ -39,7 +38,7 @@ export default function Routes() {
         render={(props) => {
           let collection = findCollection(props.match.params.id);
           return collection ? (
-            <Pantones {...collectionWithShades(collection)} />
+            <OneCollection {...collectionWithShades(collection)} />
           ) : (
             <NotFound />
           );
