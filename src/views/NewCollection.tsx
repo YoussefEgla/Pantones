@@ -17,6 +17,7 @@ import {
 } from "@material-ui/core/";
 import { newCollectionStyles as useStyles } from "./styles";
 import { ChromePicker } from "react-color";
+import chroma from "chroma-js";
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
@@ -76,7 +77,14 @@ export default function PersistentDrawerLeft() {
             onChangeComplete={(newColor) => setColor(newColor.hex)}
           />
           <div className={classes.buttonsContainer}>
-            <Button color="primary" variant="contained" size="medium">
+            <Button
+              variant="contained"
+              size="medium"
+              style={{
+                backgroundColor: color,
+                color: chroma(color).luminance() <= 0.35 ? "white" : "black",
+              }}
+            >
               Add Color
             </Button>
           </div>
