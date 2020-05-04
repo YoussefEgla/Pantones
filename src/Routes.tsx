@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 // views
-import Collections from "./views/Collections";
+import Collections from "./views/";
 import Pantones from "./views/Pantones";
 import NewCollection from "./views/NewCollection";
 import NotFound from "./views/NotFound-404";
