@@ -1,6 +1,6 @@
 import { makeStyles, createStyles, Theme } from "@material-ui/core";
 
-const drawerWidth = 240;
+const drawerWidth = 250;
 
 export default makeStyles((theme: Theme) =>
   createStyles({
@@ -57,6 +57,16 @@ export default makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.enteringScreen,
       }),
       marginLeft: 0,
+    },
+    drawerContent: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100%",
+    },
+    buttonsContainer: {
+      marginTop: "15px",
     },
   })
 );

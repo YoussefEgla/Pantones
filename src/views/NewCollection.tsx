@@ -12,21 +12,17 @@ import {
   Toolbar,
   Typography,
   IconButton,
+  Divider,
+  Button,
 } from "@material-ui/core/";
 import { newCollectionStyles as useStyles } from "./styles";
+import { ChromePicker } from "react-color";
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+  const [open, setOpen] = React.useState(true); // drawer state
+  const [color, setColor] = React.useState("white");
 
   return (
     <div className={classes.root}>
@@ -41,7 +37,7 @@ export default function PersistentDrawerLeft() {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={() => setOpen(true)}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
           >
@@ -65,13 +61,25 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader}>
           <p style={{ margin: "0 auto" }}>Pick a pantone</p>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={() => setOpen(false)}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
             ) : (
               <ChevronRightIcon />
             )}
           </IconButton>
+        </div>
+        <Divider />
+        <div className={classes.drawerContent}>
+          <ChromePicker
+            color={color}
+            onChangeComplete={(newColor) => setColor(newColor.hex)}
+          />
+          <div className={classes.buttonsContainer}>
+            <Button color="primary" variant="contained" size="medium">
+              Add Color
+            </Button>
+          </div>
         </div>
       </Drawer>
       <main
