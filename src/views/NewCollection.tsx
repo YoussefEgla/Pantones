@@ -20,6 +20,7 @@ export default function PersistentDrawerLeft() {
         return "Pantone has to be unique";
       }
     }
+    if (colors.length >= 20) return "You can't add more than 20";
     setColors([...colors, newColor]);
     return "";
   }
