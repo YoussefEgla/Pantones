@@ -23,9 +23,6 @@ interface DraggableBox {
 interface ColorPicker {
   dispatch: {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    setCurrentColor: React.Dispatch<
-      React.SetStateAction<{ name: string; color: string }>
-    >;
     addColor: Function;
   };
   open: boolean;

@@ -27,6 +27,7 @@ export default function ColorPicker(props: ColorPicker) {
     name: "",
     color: "#000000",
   });
+  const [message, setMessage] = useState("");
 
   return (
     <Fragment>
@@ -64,7 +65,7 @@ export default function ColorPicker(props: ColorPicker) {
         }}
       >
         <div className={classes.drawerHeader}>
-          <p style={{ margin: "0 auto" }}>Pick a pantone</p>
+          <Typography variant="overline">{message}</Typography>
           <IconButton onClick={() => props.dispatch.setOpen(false)}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon />
@@ -107,7 +108,7 @@ export default function ColorPicker(props: ColorPicker) {
                     ? "white"
                     : "black",
               }}
-              onClick={(e) => props.dispatch.addColor(currentColor)}
+              onClick={(e) => setMessage(props.dispatch.addColor(currentColor))}
             >
               Add Color
             </Button>

@@ -1,27 +1,31 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import { useTheme } from "@material-ui/core/styles";
 import { newCollectionStyles as useStyles } from "./styles";
 import { DraggableBox, ColorPicker } from "../components";
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true); // drawer state
-  const [currentColor, setCurrentColor] = React.useState({
-    color: "#000000",
-    name: "black",
-  }); // current color state
-  const [colors, setColors] = useState([currentColor]); // colors array
+  const [colors, setColors] = useState([{ name: "black", color: "#000000" }]); // colors array
 
-  function addColor(color: { name: string; color: string }): void {
-    setColors([...colors, color]);
+  function addColor(newColor: { name: string; color: string }): string {
+    for (let color of colors) {
+      if (
+        newColor.name.toLowerCase() === color.name.toLowerCase() ||
+        newColor.name === ""
+      ) {
+        return "Name has to be unique";
+      }
+      if (newColor.color === color.color) {
+        return "Pantone has to be unique";
+      }
+    }
+    setColors([...colors, newColor]);
+    return "";
   }
   return (
     <div className={classes.root}>
-      <ColorPicker
-        dispatch={{ setOpen, setCurrentColor, addColor }}
-        open={open}
-      />
+      <ColorPicker dispatch={{ setOpen, addColor }} open={open} />
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
