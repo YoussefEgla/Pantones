@@ -13,4 +13,16 @@ export default makeStyles({
     color: (props: DraggableBox) =>
       chroma(props.color).luminance() <= 0.35 ? "white" : "black",
   },
+  container: {
+    height: "100%",
+    width: "100%",
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
+  },
+  btnColor: {
+    color: (props: DraggableBox) =>
+      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
+  },
 });
