@@ -1,8 +1,11 @@
 import { makeStyles } from "@material-ui/core";
+import collectionsBackground from "./collections-bg.svg";
 
 export default makeStyles({
   root: {
     minHeight: "100vh",
+    background: `url(${collectionsBackground}) center center`,
+    backgroundRepeat: "repeat",
   },
   header: {
     height: "10vh",
@@ -15,6 +18,7 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    color: "white",
   },
   main: {
     maxWidth: "800px",
