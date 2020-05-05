@@ -23,6 +23,13 @@ export default function PersistentDrawerLeft() {
     setColors([...colors, newColor]);
     return "";
   }
+  function removeColor(colorToRemove: { name: string; color: string }) {
+    setColors(
+      colors.filter((color) => {
+        return color.color !== colorToRemove.color;
+      })
+    );
+  }
   return (
     <div className={classes.root}>
       <ColorPicker dispatch={{ setOpen, addColor }} open={open} />
@@ -33,7 +40,11 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader} />
         {colors.map((color) => (
-          <DraggableBox {...color} key={color.color} />
+          <DraggableBox
+            {...color}
+            key={color.color}
+            dispatch={{ removeColor }}
+          />
         ))}
       </main>
     </div>

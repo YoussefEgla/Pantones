@@ -16,6 +16,7 @@ interface PantoneNavbar {
 }
 
 interface DraggableBox {
+  dispatch: { removeColor: Function };
   color: string;
   name: string;
 }

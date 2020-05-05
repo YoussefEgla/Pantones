@@ -12,7 +12,16 @@ export default function DraggableBox(props: DraggableBox) {
         <Button size="small" className={classes.btnColor}>
           {props.name}
         </Button>
-        <DeleteIcon style={{ margin: "7px", fontSize: "21px" }} />
+        <Button
+          size="small"
+          className={classes.btnColor}
+          onClick={() =>
+            props.dispatch.removeColor({ name: props.name, color: props.color })
+          }
+          endIcon={<DeleteIcon />}
+        >
+          Delete
+        </Button>
       </div>
     </div>
   );
