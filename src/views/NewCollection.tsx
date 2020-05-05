@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -24,7 +24,8 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true); // drawer state
-  const [color, setColor] = React.useState("white");
+  const [currentColor, setCurrentColor] = React.useState("#000000");
+  const [colors, addColor] = useState([currentColor]); // colors array
 
   return (
     <div className={classes.root}>
@@ -74,17 +75,19 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <div className={classes.drawerContent}>
           <ChromePicker
-            color={color}
-            onChangeComplete={(newColor) => setColor(newColor.hex)}
+            color={currentColor}
+            onChangeComplete={(newColor) => setCurrentColor(newColor.hex)}
           />
           <div className={classes.buttonsContainer}>
             <Button
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: color,
-                color: chroma(color).luminance() <= 0.35 ? "white" : "black",
+                backgroundColor: currentColor,
+                color:
+                  chroma(currentColor).luminance() <= 0.35 ? "white" : "black",
               }}
+              onClick={(e) => addColor([...colors, currentColor])}
             >
               Add Color
             </Button>
@@ -97,6 +100,9 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
+        {colors.map((color) => (
+          <DraggableBox color={color} key={color} />
+        ))}
       </main>
     </div>
   );

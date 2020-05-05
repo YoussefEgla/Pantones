@@ -6,6 +6,7 @@ export default makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: "flex",
+      height: "100vh",
     },
     appBar: {
       transition: theme.transitions.create(["margin", "width"], {
@@ -44,12 +45,14 @@ export default makeStyles((theme: Theme) =>
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }),
       marginLeft: -drawerWidth,
+      height: "100%",
+      margin: "0",
+      padding: 0,
     },
     contentShift: {
       transition: theme.transitions.create("margin", {

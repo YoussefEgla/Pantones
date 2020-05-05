@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import chroma from "chroma-js";
 
 export default makeStyles({
   root: {
@@ -8,7 +9,8 @@ export default makeStyles({
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-3.5px",
     backgroundColor: (props: DraggableBox) => props.color,
+    color: (props: DraggableBox) =>
+      chroma(props.color).luminance() <= 0.35 ? "white" : "black",
   },
 });
