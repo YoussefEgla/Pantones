@@ -18,6 +18,7 @@ import {
 import { newCollectionStyles as useStyles } from "./styles";
 import { ChromePicker } from "react-color";
 import chroma from "chroma-js";
+import { DraggableBox } from "../components";
 
 export default function PersistentDrawerLeft() {
   const classes = useStyles();

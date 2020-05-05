@@ -14,3 +14,7 @@ interface PantoneNavbar {
   };
   colorFormat: string;
 }
+
+interface DraggableBox {
+  color: string;
+}
