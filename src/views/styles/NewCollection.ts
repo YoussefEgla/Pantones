@@ -70,6 +70,10 @@ export default makeStyles((theme: Theme) =>
     },
     buttonsContainer: {
       marginTop: "15px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      height: "100px",
     },
   })
 );

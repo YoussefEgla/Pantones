@@ -14,6 +14,7 @@ import {
   IconButton,
   Divider,
   Button,
+  TextField,
 } from "@material-ui/core/";
 import { newCollectionStyles as useStyles } from "./styles";
 import { ChromePicker } from "react-color";
@@ -24,7 +25,10 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true); // drawer state
-  const [currentColor, setCurrentColor] = React.useState("#000000");
+  const [currentColor, setCurrentColor] = React.useState({
+    color: "#000000",
+    name: "black",
+  }); // current color state
   const [colors, addColor] = useState([currentColor]); // colors array
 
   return (
@@ -75,17 +79,30 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <div className={classes.drawerContent}>
           <ChromePicker
-            color={currentColor}
-            onChangeComplete={(newColor) => setCurrentColor(newColor.hex)}
+            color={currentColor.color}
+            onChangeComplete={(newColor) =>
+              setCurrentColor({ ...currentColor, color: newColor.hex })
+            }
           />
           <div className={classes.buttonsContainer}>
+            <TextField
+              label="Color name"
+              variant="filled"
+              type="text"
+              name="name"
+              onChange={(e) =>
+                setCurrentColor({ ...currentColor, name: e.target.value })
+              }
+            />
             <Button
               variant="contained"
               size="medium"
               style={{
-                backgroundColor: currentColor,
+                backgroundColor: currentColor.color,
                 color:
-                  chroma(currentColor).luminance() <= 0.35 ? "white" : "black",
+                  chroma(currentColor.color).luminance() <= 0.35
+                    ? "white"
+                    : "black",
               }}
               onClick={(e) => addColor([...colors, currentColor])}
             >
@@ -101,7 +118,7 @@ export default function PersistentDrawerLeft() {
       >
         <div className={classes.drawerHeader} />
         {colors.map((color) => (
-          <DraggableBox color={color} key={color} />
+          <DraggableBox {...color} key={color.color} />
         ))}
       </main>
     </div>
