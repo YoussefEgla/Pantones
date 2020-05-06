@@ -14,6 +14,11 @@ import {
 export default function Routes() {
   const [allCollections, setAllCollections] = useState(seedCollections);
 
+  function addCollection(collection: SeedCollection) {
+    //@ts-ignore
+    seedCollections.push(collection);
+  }
+
   function deleteCollection(collectionToDelete: string) {
     // @ts-ignore
     setAllCollections(
@@ -21,7 +26,6 @@ export default function Routes() {
         return collectionToDelete !== collection.id;
       })
     );
-    console.log("deleting Collection");
   }
 
   return (
@@ -68,9 +72,4 @@ export default function Routes() {
       <Route render={() => <NotFound />} />
     </Switch>
   );
-}
-
-function addCollection(collection: SeedCollection) {
-  //@ts-ignore
-  seedCollections.push(collection);
 }

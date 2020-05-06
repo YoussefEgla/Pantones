@@ -43,10 +43,7 @@ export default function MiniCollection(props: CollectionCard) {
           size="small"
           variant="contained"
           color="secondary"
-          onClick={() => {
-            props.dispatch.deleteCollection(props.id);
-            console.log(props.id);
-          }}
+          onClick={() => props.dispatch.deleteCollection(props.id)}
         >
           Delete
         </Button>
