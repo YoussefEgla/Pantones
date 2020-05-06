@@ -18,7 +18,7 @@ export default function Collections(props: Collections) {
             Pantones
           </Typography>
           <Link to="/collection/new">
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="secondary">
               Create Collection
             </Button>
           </Link>
