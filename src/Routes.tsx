@@ -19,7 +19,11 @@ export default function Routes() {
         path="/"
         render={() => <Collections collections={seedCollections} />}
       />
-      <Route exact path="/collection/new" render={() => <NewCollection />} />
+      <Route
+        exact
+        path="/collection/new"
+        render={() => <NewCollection dispatch={{ addCollection }} />}
+      />
       <Route
         exact
         path="/collection/:id"
@@ -47,4 +51,9 @@ export default function Routes() {
       <Route render={() => <NotFound />} />
     </Switch>
   );
+}
+
+function addCollection(collection: SeedCollection) {
+  //@ts-ignore
+  seedCollections.push(collection);
 }
