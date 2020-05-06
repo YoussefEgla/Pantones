@@ -34,9 +34,10 @@ export default makeStyles((theme: Theme) =>
     drawerContent: {
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      justifyContent: "space-between",
       alignItems: "center",
       height: "100%",
+      padding: "10px",
     },
     buttonsContainer: {
       marginTop: "15px",

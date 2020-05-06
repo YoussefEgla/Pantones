@@ -75,43 +75,72 @@ export default function ColorPicker(props: ColorPicker) {
           </IconButton>
         </div>
         <Divider />
-        <div className={classes.drawerContent}>
-          <ChromePicker
-            color={currentColor.color}
-            onChangeComplete={(newColor) =>
-              setCurrentColor({
-                ...currentColor,
-                color: newColor.hex,
-              })
-            }
-          />
-          <div className={classes.buttonsContainer}>
-            <TextField
-              label="Color name"
-              variant="filled"
-              type="text"
-              name="name"
-              onChange={(e) =>
-                setCurrentColor({
-                  ...currentColor,
-                  name: e.target.value,
-                })
-              }
-            />
-            <Button
-              variant="contained"
-              size="medium"
+        <div>
+          <div className={classes.drawerContent}>
+            <div
               style={{
-                backgroundColor: currentColor.color,
-                color:
-                  chroma(currentColor.color).luminance() <= 0.35
-                    ? "white"
-                    : "black",
+                width: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
               }}
-              onClick={(e) => setMessage(props.dispatch.addColor(currentColor))}
             >
-              Add Color
-            </Button>
+              <Button
+                size="medium"
+                variant="contained"
+                color="primary"
+                style={{ marginBottom: "15px" }}
+              >
+                Random Color
+              </Button>
+              <ChromePicker
+                color={currentColor.color}
+                onChangeComplete={(newColor) =>
+                  setCurrentColor({
+                    ...currentColor,
+                    color: newColor.hex,
+                  })
+                }
+              />
+              <div className={classes.buttonsContainer}>
+                <TextField
+                  label="Color name"
+                  variant="filled"
+                  type="text"
+                  name="name"
+                  onChange={(e) =>
+                    setCurrentColor({
+                      ...currentColor,
+                      name: e.target.value,
+                    })
+                  }
+                />
+                <Button
+                  variant="contained"
+                  size="medium"
+                  style={{
+                    backgroundColor: currentColor.color,
+                    color:
+                      chroma(currentColor.color).luminance() <= 0.35
+                        ? "white"
+                        : "black",
+                  }}
+                  onClick={(e) =>
+                    setMessage(props.dispatch.addColor(currentColor))
+                  }
+                >
+                  Add Color
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              justifySelf: "flex-end",
+            }}
+          >
+            <Typography></Typography>
           </div>
         </div>
       </Drawer>
