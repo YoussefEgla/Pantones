@@ -25,6 +25,7 @@ interface ColorPicker {
   dispatch: {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     addColor: Function;
+    handleSubmit: Function;
   };
   open: boolean;
 }

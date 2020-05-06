@@ -15,6 +15,7 @@ import {
   Divider,
   Button,
   useTheme,
+  colors,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -23,6 +24,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 export default function ColorPicker(props: ColorPicker) {
   const classes = useStyles();
   const theme = useTheme();
+  const [collectionName, setCollectionName] = useState("");
   const [currentColor, setCurrentColor] = useState({
     name: "",
     color: "#000000",
@@ -91,6 +93,12 @@ export default function ColorPicker(props: ColorPicker) {
                 variant="contained"
                 color="primary"
                 style={{ marginBottom: "15px" }}
+                onClick={(e) => {
+                  setCurrentColor({
+                    ...currentColor,
+                    color: chroma.random().hex(),
+                  });
+                }}
               >
                 Random Color
               </Button>
@@ -105,10 +113,11 @@ export default function ColorPicker(props: ColorPicker) {
               />
               <div className={classes.buttonsContainer}>
                 <TextField
-                  label="Color name"
-                  variant="filled"
+                  label="Pantone name"
+                  variant="outlined"
                   type="text"
-                  name="name"
+                  name="color name"
+                  size="small"
                   onChange={(e) =>
                     setCurrentColor({
                       ...currentColor,
@@ -133,6 +142,33 @@ export default function ColorPicker(props: ColorPicker) {
                   Add Color
                 </Button>
               </div>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setMessage(props.dispatch.handleSubmit(collectionName));
+                  console.log("Submitting form");
+                }}
+              >
+                <TextField
+                  style={{ marginTop: "45px" }}
+                  label="Collection name"
+                  variant="outlined"
+                  size="small"
+                  type="text"
+                  name="collection name"
+                  value={collectionName}
+                  onChange={(e) => setCollectionName(e.target.value)}
+                />
+                <Button
+                  type="submit"
+                  color="secondary"
+                  size="medium"
+                  variant="contained"
+                  style={{ margin: "15px 0 0 auto" }}
+                >
+                  Add Collection
+                </Button>
+              </form>
             </div>
           </div>
           <div

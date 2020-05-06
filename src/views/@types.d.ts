@@ -5,3 +5,9 @@ interface Collections {
 interface Shades {
   collection: PantonesWithShades;
 }
+
+interface NewCollection {
+  dispatch: {
+    addCollection: Function;
+  };
+}
