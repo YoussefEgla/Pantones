@@ -15,6 +15,7 @@ import {
   Divider,
   Button,
   useTheme,
+  colors,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -91,6 +92,12 @@ export default function ColorPicker(props: ColorPicker) {
                 variant="contained"
                 color="primary"
                 style={{ marginBottom: "15px" }}
+                onClick={(e) => {
+                  setCurrentColor({
+                    ...currentColor,
+                    color: chroma.random().hex(),
+                  });
+                }}
               >
                 Random Color
               </Button>
@@ -105,10 +112,11 @@ export default function ColorPicker(props: ColorPicker) {
               />
               <div className={classes.buttonsContainer}>
                 <TextField
-                  label="Color name"
-                  variant="filled"
+                  label="Pantone name"
+                  variant="outlined"
                   type="text"
-                  name="name"
+                  name="color name"
+                  size="small"
                   onChange={(e) =>
                     setCurrentColor({
                       ...currentColor,
@@ -133,6 +141,22 @@ export default function ColorPicker(props: ColorPicker) {
                   Add Color
                 </Button>
               </div>
+              <TextField
+                style={{ marginTop: "45px" }}
+                label="Collection name"
+                variant="outlined"
+                size="small"
+                type="text"
+                name="collection name"
+              />
+              <Button
+                color="secondary"
+                size="medium"
+                variant="contained"
+                style={{ margin: "15px 0 0 auto" }}
+              >
+                Add Collection
+              </Button>
             </div>
           </div>
           <div
