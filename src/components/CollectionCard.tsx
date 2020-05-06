@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import { collectionCardStyles as useStyles } from "./styles";
 
-export default function MiniCollection(props: SeedCollection) {
+export default function MiniCollection(props: CollectionCard) {
   const classes = useStyles();
 
   const miniPantones = props.colors.map(({ name, color }) => (
@@ -30,6 +30,27 @@ export default function MiniCollection(props: SeedCollection) {
           <Link to={`/collection/${props.id}`}>{props.emoji}</Link>
         </span>
       </Typography>
+      <div style={{ alignSelf: "flex-end" }}>
+        <Button
+          size="small"
+          variant="contained"
+          color="primary"
+          style={{ margin: "0 5px 0 0" }}
+        >
+          Edit
+        </Button>
+        <Button
+          size="small"
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            props.dispatch.deleteCollection(props.id);
+            console.log(props.id);
+          }}
+        >
+          Delete
+        </Button>
+      </div>
     </div>
   );
 }

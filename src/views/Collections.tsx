@@ -8,7 +8,11 @@ import { CollectionCard } from "../components";
 export default function Collections(props: Collections) {
   const classes = useStyles();
   const list = props.collections.map((collection) => (
-    <CollectionCard {...collection} key={collection.id} />
+    <CollectionCard
+      {...collection}
+      key={collection.id}
+      dispatch={{ deleteCollection: props.dispatch.deleteCollection }}
+    />
   ));
   return (
     <div className={classes.root}>
