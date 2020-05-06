@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // views
@@ -12,12 +12,33 @@ import {
 } from "./services/";
 
 export default function Routes() {
+  const [allCollections, setAllCollections] = useState(seedCollections);
+
+  function addCollection(collection: SeedCollection) {
+    //@ts-ignore
+    seedCollections.push(collection);
+  }
+
+  function deleteCollection(collectionToDelete: string) {
+    // @ts-ignore
+    setAllCollections(
+      allCollections.filter((collection) => {
+        return collectionToDelete !== collection.id;
+      })
+    );
+  }
+
   return (
     <Switch>
       <Route
         exact
         path="/"
-        render={() => <Collections collections={seedCollections} />}
+        render={() => (
+          <Collections
+            collections={allCollections}
+            dispatch={{ deleteCollection }}
+          />
+        )}
       />
       <Route
         exact
@@ -51,9 +72,4 @@ export default function Routes() {
       <Route render={() => <NotFound />} />
     </Switch>
   );
-}
-
-function addCollection(collection: SeedCollection) {
-  //@ts-ignore
-  seedCollections.push(collection);
 }

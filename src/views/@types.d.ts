@@ -1,5 +1,8 @@
 interface Collections {
   collections: SeedColletion[];
+  dispatch: {
+    deleteCollection: Function;
+  };
 }
 
 interface Shades {

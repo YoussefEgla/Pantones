@@ -29,3 +29,9 @@ interface ColorPicker {
   };
   open: boolean;
 }
+
+interface CollectionCard extends SeedCollection {
+  dispatch: {
+    deleteCollection: Function;
+  };
+}
