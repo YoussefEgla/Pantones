@@ -14,3 +14,17 @@ interface PantoneNavbar {
   };
   colorFormat: string;
 }
+
+interface DraggableBox {
+  dispatch: { removeColor: Function };
+  color: string;
+  name: string;
+}
+
+interface ColorPicker {
+  dispatch: {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    addColor: Function;
+  };
+  open: boolean;
+}
