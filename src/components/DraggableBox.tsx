@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { draggableBoxStyles as useStyles } from "./styles";
 
-export default SortableElement(function DraggableBox(props: DraggableBox) {
+export default function DraggableBox(props: DraggableBox) {
   const classes = useStyles(props);
 
   return (
@@ -26,4 +26,4 @@ export default SortableElement(function DraggableBox(props: DraggableBox) {
       </div>
     </div>
   );
-});
+}
