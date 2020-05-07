@@ -1,9 +1,10 @@
 import React from "react";
+import { SortableElement } from "react-sortable-hoc";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { draggableBoxStyles as useStyles } from "./styles";
 
-export default function DraggableBox(props: DraggableBox) {
+export default SortableElement(function DraggableBox(props: DraggableBox) {
   const classes = useStyles(props);
 
   return (
@@ -25,4 +26,4 @@ export default function DraggableBox(props: DraggableBox) {
       </div>
     </div>
   );
-}
+});
