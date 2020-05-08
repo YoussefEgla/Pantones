@@ -19,6 +19,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { EmojiPicker } from "./";
 
 export default function ColorPicker(props: ColorPicker) {
   const classes = useStyles();
@@ -28,6 +29,7 @@ export default function ColorPicker(props: ColorPicker) {
     name: "",
     color: "#000000",
   });
+  const [emoji, setEmoji] = useState("");
   const [message, setMessage] = useState("");
 
   return (
@@ -87,20 +89,30 @@ export default function ColorPicker(props: ColorPicker) {
                 alignItems: "center",
               }}
             >
-              <Button
-                size="medium"
-                variant="contained"
-                color="primary"
-                style={{ marginBottom: "15px" }}
-                onClick={(e) => {
-                  setCurrentColor({
-                    ...currentColor,
-                    color: chroma.random().hex(),
-                  });
+              <div
+                style={{
+                  marginBottom: "15px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  width: "100%",
                 }}
               >
-                Random Color
-              </Button>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="primary"
+                  style={{ marginBottom: "15px" }}
+                  onClick={(e) => {
+                    setCurrentColor({
+                      ...currentColor,
+                      color: chroma.random().hex(),
+                    });
+                  }}
+                >
+                  Random Color
+                </Button>
+                <EmojiPicker dispatch={{ setEmoji }} />
+              </div>
               <ChromePicker
                 color={currentColor.color}
                 onChangeComplete={(newColor) =>
@@ -170,13 +182,6 @@ export default function ColorPicker(props: ColorPicker) {
                 </Button>
               </form>
             </div>
-          </div>
-          <div
-            style={{
-              justifySelf: "flex-end",
-            }}
-          >
-            <Typography></Typography>
           </div>
         </div>
       </Drawer>

@@ -35,3 +35,9 @@ interface CollectionCard extends SeedCollection {
     deleteCollection: Function;
   };
 }
+
+interface EmojiPicker {
+  dispatch: {
+    setEmoji: Function;
+  };
+}
