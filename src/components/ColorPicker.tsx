@@ -156,7 +156,9 @@ export default function ColorPicker(props: ColorPicker) {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  setMessage(props.dispatch.handleSubmit(collectionName));
+                  setMessage(
+                    props.dispatch.handleSubmit(collectionName, emoji)
+                  );
                   console.log("Submitting form");
                 }}
               >

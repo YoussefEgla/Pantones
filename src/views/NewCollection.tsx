@@ -41,14 +41,14 @@ export default function NewCollection(props: NewCollection) {
   /**
    * Handle Collection submit
    */
-  function handleSubmit(collectionName: string) {
+  function handleSubmit(collectionName: string, emoji = "") {
     if (collectionName.length < 5) return "Collection must have a name";
     if (colors.length < 3) return "You need at least 10 pantones";
     // format seed collection from data available
     const newCollection: SeedCollection = {
       name: collectionName,
       id: collectionName.replace(" ", "-"),
-      emoji: "",
+      emoji,
       colors,
     };
     // add collection created to collections
