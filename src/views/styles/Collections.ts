@@ -19,6 +19,7 @@ export default makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
     color: "white",
+    flexWrap: "wrap",
   },
   main: {
     maxWidth: "800px",
@@ -26,7 +27,7 @@ export default makeStyles({
     margin: "0 auto",
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "space-around",
   },
 });
