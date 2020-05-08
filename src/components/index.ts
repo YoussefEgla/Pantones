@@ -4,3 +4,4 @@ export { default as ShadeBox } from "./ShadeBox";
 export { default as CollectionCard } from "./CollectionCard";
 export { default as DraggableBox } from "./DraggableBox";
 export { default as ColorPicker } from "./ColorPicker";
+export { default as EmojiPicker } from "./EmojiPicker";

@@ -158,6 +158,7 @@ export default function ColorPicker(props: ColorPicker) {
                   value={collectionName}
                   onChange={(e) => setCollectionName(e.target.value)}
                 />
+
                 <Button
                   type="submit"
                   color="secondary"
