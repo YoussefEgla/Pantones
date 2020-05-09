@@ -34,14 +34,6 @@ export default function MiniCollection(props: CollectionCard) {
         <Button
           size="small"
           variant="contained"
-          color="primary"
-          style={{ margin: "0 5px 0 0" }}
-        >
-          Edit
-        </Button>
-        <Button
-          size="small"
-          variant="contained"
           color="secondary"
           onClick={() => props.dispatch.deleteCollection(props.id)}
         >

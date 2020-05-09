@@ -3,7 +3,7 @@ import collectionsBackground from "./collections-bg.svg";
 
 export default makeStyles({
   root: {
-    minHeight: "100vh",
+    height: "auto",
     background: `url(${collectionsBackground}) center center`,
     backgroundRepeat: "repeat",
   },
@@ -12,18 +12,17 @@ export default makeStyles({
   },
   nav: {
     height: "100%",
-    width: "80%",
+    width: "95%",
     margin: "0 auto",
     padding: "0 2.5%",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     color: "white",
-    flexWrap: "wrap",
   },
   main: {
     maxWidth: "800px",
-    minHeight: "800px",
+    minHeight: "90vh",
     margin: "0 auto",
     display: "flex",
     flexWrap: "wrap",
