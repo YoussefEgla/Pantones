@@ -33,7 +33,7 @@ export default function OneCollection(props: PantonesWithShades) {
     <ShadeBox
       name={pantone.name}
       id={pantone.id}
-      color={pantone.hex}
+      color={pantone[colorFormat as ColorFormat]}
       key={`${pantone.id}-shade`}
     />
   ));
