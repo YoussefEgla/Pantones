@@ -13,6 +13,11 @@ export default makeStyles({
   slider: {
     maxWidth: 300,
     alignSelf: "flex-end",
+    ["@media (max-width: 768px)"]: {
+      maxWidth: "350",
+      alignSelf: "flex-end",
+      marginBottom: "-15px",
+    },
   },
   formControl: {
     minWidth: 125,

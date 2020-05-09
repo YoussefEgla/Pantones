@@ -1,5 +1,4 @@
 import React from "react";
-import { SortableElement } from "react-sortable-hoc";
 import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { draggableBoxStyles as useStyles } from "./styles";

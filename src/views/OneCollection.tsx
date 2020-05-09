@@ -23,7 +23,7 @@ export default function OneCollection(props: PantonesWithShades) {
         id={pantone.id}
         name={pantone.name}
         color={pantone[colorFormat as ColorFormat]}
-        key={`${pantone.id}`}
+        key={`${pantone.id}-color`}
       />
     );
   });
@@ -34,7 +34,7 @@ export default function OneCollection(props: PantonesWithShades) {
       name={pantone.name}
       id={pantone.id}
       color={pantone.hex}
-      key={`${pantone.id}`}
+      key={`${pantone.id}-shade`}
     />
   ));
 
