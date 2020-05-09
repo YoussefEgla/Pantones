@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export default makeStyles({
   nav: {
     height: "100%",
-    width: "80%",
+    width: "95%",
     margin: "0 auto",
     padding: "0 2.5%",
     display: "flex",
