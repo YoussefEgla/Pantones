@@ -26,6 +26,9 @@ export default makeStyles((theme: Theme) =>
       height: "100%",
       margin: "0",
       padding: 0,
+      ["@media (max-width: 768px)"]: {
+        overflow: "hidden",
+      },
     },
     contentShift: {
       transition: theme.transitions.create("margin", {

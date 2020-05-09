@@ -20,9 +20,7 @@ export default function DraggableBox(props: DraggableBox) {
             props.dispatch.removeColor({ name: props.name, color: props.color })
           }
           endIcon={<DeleteIcon />}
-        >
-          Delete
-        </Button>
+        ></Button>
       </div>
     </div>
   );
