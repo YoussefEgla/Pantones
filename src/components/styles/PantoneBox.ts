@@ -17,10 +17,6 @@ export default makeStyles({
     },
     color: (props: PantoneBox) =>
       chroma(props.color).luminance() <= 0.35 ? "white" : "black",
-    ["@media (max-width: 768px)"]: {
-      width: "100%",
-      height: "10%",
-    },
   },
 
   text: {

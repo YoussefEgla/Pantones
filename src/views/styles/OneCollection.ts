@@ -4,9 +4,6 @@ export default makeStyles({
   root: {
     width: "100%",
     height: "100vh",
-    ["@media (max-width: 768px)"]: {
-      height: "auto",
-    },
   },
   header: {
     width: "100%",
